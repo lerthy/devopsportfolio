@@ -118,16 +118,22 @@ export default function RecommendationModal({
     }
   }, [recommendation, onClose])
 
-  // Prevent body scroll when modal is open
+  // Prevent body scroll when modal is open (but allow modal content to scroll)
   useEffect(() => {
     if (recommendation) {
       document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
 
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
   }, [recommendation])
 
@@ -156,7 +162,7 @@ export default function RecommendationModal({
         {/* Modal Card - AWS Style */}
         <motion.div
           ref={modalRef}
-          className="relative bg-[#232F3E] rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden z-10 border border-slate-600/50"
+          className="relative bg-[#232F3E] rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] md:max-h-[90vh] h-[90vh] md:h-auto overflow-hidden z-10 border border-slate-600/50 flex flex-col"
           initial={{ scale: 0.95, y: 20, opacity: 0 }}
           animate={{ scale: 1, y: 0, opacity: 1 }}
           exit={{ scale: 0.95, y: 20, opacity: 0 }}
@@ -211,8 +217,8 @@ export default function RecommendationModal({
           </div>
 
           {/* Content - Scrollable */}
-          <div className="overflow-y-auto max-h-[calc(90vh-180px)]">
-            <div className="p-8 space-y-6">
+          <div className="overflow-y-auto flex-1 overscroll-contain -webkit-overflow-scrolling-touch">
+            <div className="p-4 md:p-8 space-y-6 pb-8">
               {/* Letter Body */}
               <motion.div
                 className="relative bg-gradient-to-br from-slate-800/70 to-slate-800/50 rounded-xl p-8 border border-slate-700/50 shadow-xl"
