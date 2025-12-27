@@ -7,6 +7,9 @@ export interface Project {
   githubUrl?: string
 }
 
+// Import for potential future use
+export type { RecommendationLetter } from './recommendationsData'
+
 export interface JourneyStop {
   id: string
   title: string
@@ -70,7 +73,7 @@ export const journeyStops: JourneyStop[] = [
         {
           title: "Appointly",
           description: "Appointment booking platform with UX focus",
-          technologies: ["React", "Node.js", "Supabase"],
+          technologies: ["React", "Node.js", "Supabase  "],
           challenges: ["User experience design", "Real-time scheduling"],
           url: "https://appointly-ks.com/",
         },
