@@ -303,12 +303,20 @@ export default function StopCard({ stop, onClose }: StopCardProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                 >
-                  <a
-                    href="mailto:lerdi890@gmail.com"
-                    className="block w-full text-center px-6 py-4 bg-gradient-to-r from-[#FF9900] to-[#FF8800] hover:from-[#FF8800] hover:to-[#FF7700] text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                  <motion.button
+                    onClick={() => {
+                      onClose()
+                      setTimeout(() => {
+                        const contactSection = document.getElementById('contact')
+                        contactSection?.scrollIntoView({ behavior: 'smooth' })
+                      }, 300)
+                    }}
+                    className="w-full px-6 py-4 bg-gradient-to-r from-[#FF9900] to-[#FF8800] hover:from-[#FF8800] hover:to-[#FF7700] text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#FF9900] focus:ring-offset-2 focus:ring-offset-[#232F3E]"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    Let's build something together
-                  </a>
+                    Let's build something together →
+                  </motion.button>
                 </motion.div>
               )}
             </div>

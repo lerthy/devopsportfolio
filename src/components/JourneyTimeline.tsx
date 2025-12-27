@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { Rocket } from 'lucide-react'
 import { journeyStops } from '@/data/journeyData'
 import JourneyStop from './JourneyStop'
 import StopCard from './StopCard'
@@ -148,6 +149,171 @@ export default function JourneyTimeline() {
                 )
               })}
             </div>
+          </div>
+        </div>
+
+        {/* Rocket Animation at Bottom */}
+        <div className="relative mt-16 h-24 overflow-hidden">
+          {/* Desktop: Enhanced Rocket Animation */}
+          <motion.div
+            className="hidden lg:block absolute bottom-0"
+            animate={{
+              x: ['-48px', 'calc(100% + 48px)', '-48px'],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          >
+            <motion.div
+              animate={{
+                rotate: [0, 5, 0, -5, 0],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              <Rocket className="w-12 h-12 text-[#FF9900] drop-shadow-2xl filter brightness-110" />
+            </motion.div>
+            
+            {/* Rocket Exhaust Particles */}
+            <motion.div
+              className="absolute -left-8 top-1/2 transform -translate-y-1/2"
+              animate={{
+                opacity: [0.8, 1, 0.8],
+                scale: [0.8, 1.2, 0.8],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              <div className="flex gap-1">
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="w-2 h-2 rounded-full bg-[#FF9900]"
+                    animate={{
+                      y: [0, -8, 0],
+                      opacity: [0.6, 1, 0.6],
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: 'easeOut',
+                    }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Mobile: Enhanced Rocket Animation */}
+          <motion.div
+            className="lg:hidden absolute bottom-0"
+            animate={{
+              x: ['-32px', 'calc(100% + 32px)', '-32px'],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          >
+            <motion.div
+              animate={{
+                rotate: [0, 5, 0, -5, 0],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              <Rocket className="w-8 h-8 text-[#FF9900] drop-shadow-2xl filter brightness-110" />
+            </motion.div>
+            
+            {/* Rocket Exhaust Particles - Mobile */}
+            <motion.div
+              className="absolute -left-6 top-1/2 transform -translate-y-1/2"
+              animate={{
+                opacity: [0.8, 1, 0.8],
+                scale: [0.8, 1.2, 0.8],
+              }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              <div className="flex gap-1">
+                {[0, 1].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="w-1.5 h-1.5 rounded-full bg-[#FF9900]"
+                    animate={{
+                      y: [0, -6, 0],
+                      opacity: [0.6, 1, 0.6],
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: 'easeOut',
+                    }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Animated Trail Lines */}
+          <div className="absolute bottom-0 left-0 right-0 h-2 overflow-hidden">
+            <motion.div
+              className="absolute bottom-0 left-0 right-0 h-full"
+              animate={{
+                background: [
+                  'linear-gradient(to right, transparent 0%, #FF9900/20 50%, transparent 100%)',
+                  'linear-gradient(to right, transparent 0%, #FF9900/40 50%, transparent 100%)',
+                  'linear-gradient(to right, transparent 0%, #FF9900/20 50%, transparent 100%)',
+                ],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+          </div>
+
+          {/* Speed Lines Effect */}
+          <div className="absolute bottom-0 left-0 right-0 h-full pointer-events-none">
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute bottom-0 h-full w-px bg-[#FF9900]/20"
+                style={{
+                  left: `${20 + i * 20}%`,
+                }}
+                animate={{
+                  opacity: [0, 0.5, 0],
+                  scaleY: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  delay: i * 0.3,
+                  ease: 'easeInOut',
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -63,7 +63,7 @@ export const journeyStops: JourneyStop[] = [
   {
     id: "projects",
     title: "Academic & Personal Projects",
-    location: "Various",
+    location: "Projects",
     date: "2022 - Present",
     icon: "code",
     position: 50,
@@ -97,7 +97,7 @@ export const journeyStops: JourneyStop[] = [
   {
     id: "devops",
     title: "DevOps Apprentice",
-    location: "Kosovo", 
+    location: "DevOps", 
     date: "2024 - Present",
     icon: "server",
     position: 70,
@@ -117,7 +117,7 @@ export const journeyStops: JourneyStop[] = [
   {
     id: "startup",
     title: "Startup & Side Projects | Bytefull & Friends",
-    location: "Kosovo",
+    location: "DevOps/Dev",
     date: "2024 - Present",
     icon: "rocket",
     position: 85,
