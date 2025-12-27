@@ -31,10 +31,8 @@ export default function MiniTerminal() {
     }
   }, [outputHistory])
 
-  // Focus input on mount
-  useEffect(() => {
-    inputRef.current?.focus()
-  }, [])
+  // Focus input on mount (only when user clicks/tabs into terminal)
+  // Removed auto-focus to prevent page scrolling to terminal on load
 
   const addOutput = useCallback((outputs: TerminalOutput[]) => {
     setOutputHistory((prev) => [...prev, ...outputs])
@@ -298,7 +296,11 @@ export default function MiniTerminal() {
             </div>
 
             {/* Terminal Body */}
-            <div ref={terminalContainerRef} className="p-4 h-[500px] md:h-[600px] overflow-y-auto font-mono text-sm">
+            <div 
+              ref={terminalContainerRef} 
+              className="p-4 h-[500px] md:h-[600px] overflow-y-auto font-mono text-sm cursor-text"
+              onClick={() => inputRef.current?.focus()}
+            >
               {/* Output History */}
               <div className="space-y-1">
                 <AnimatePresence>
@@ -331,10 +333,10 @@ export default function MiniTerminal() {
                   onKeyDown={handleKeyDown}
                   disabled={isExecuting}
                   className="flex-1 bg-transparent text-gray-100 outline-none focus:outline-none caret-green-400"
-                  autoFocus
                   autoComplete="off"
                   spellCheck="false"
                   onFocus={(e) => e.stopPropagation()}
+                  onClick={() => inputRef.current?.focus()}
                 />
                 {!isExecuting && (
                   <motion.span
