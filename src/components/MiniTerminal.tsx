@@ -138,12 +138,19 @@ export default function MiniTerminal() {
               origin: { y: 0.6 },
             })
 
-            // Open project link if available
+            // Open project link if available (create anchor element for better mobile support)
             if (project) {
               const url = project.url || project.githubUrl
               if (url) {
                 setTimeout(() => {
-                  window.open(url, '_blank', 'noopener,noreferrer')
+                  // Create a temporary anchor element for better mobile browser support
+                  const link = document.createElement('a')
+                  link.href = url
+                  link.target = '_blank'
+                  link.rel = 'noopener noreferrer'
+                  document.body.appendChild(link)
+                  link.click()
+                  document.body.removeChild(link)
                 }, 500)
               }
             }
