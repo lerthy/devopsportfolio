@@ -334,6 +334,8 @@ export default function MiniTerminal() {
                   disabled={isExecuting}
                   className="flex-1 bg-transparent text-gray-100 outline-none focus:outline-none caret-green-400"
                   autoComplete="off"
+                  autoCapitalize="off"
+                  autoCorrect="off"
                   spellCheck="false"
                   onFocus={(e) => e.stopPropagation()}
                   onClick={() => inputRef.current?.focus()}
