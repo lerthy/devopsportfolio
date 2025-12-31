@@ -98,6 +98,7 @@ export default function RecommendationModal({
 }: RecommendationModalProps) {
   const modalRef = useRef<HTMLDivElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const scrollPositionRef = useRef<number>(0)
 
   // ESC key handler
   useEffect(() => {
@@ -121,19 +122,30 @@ export default function RecommendationModal({
   // Prevent body scroll when modal is open (but allow modal content to scroll)
   useEffect(() => {
     if (recommendation) {
+      // Save the current scroll position
+      scrollPositionRef.current = window.scrollY
       document.body.style.overflow = 'hidden'
       document.body.style.position = 'fixed'
       document.body.style.width = '100%'
+      document.body.style.top = `-${scrollPositionRef.current}px`
     } else {
+      // Restore the scroll position
+      const scrollY = scrollPositionRef.current
       document.body.style.overflow = ''
       document.body.style.position = ''
       document.body.style.width = ''
+      document.body.style.top = ''
+      window.scrollTo(0, scrollY)
     }
 
     return () => {
+      // Restore scroll position on cleanup
+      const scrollY = scrollPositionRef.current
       document.body.style.overflow = ''
       document.body.style.position = ''
       document.body.style.width = ''
+      document.body.style.top = ''
+      window.scrollTo(0, scrollY)
     }
   }, [recommendation])
 

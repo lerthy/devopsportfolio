@@ -129,7 +129,7 @@ export default function MiniTerminal() {
             addOutput([outputs[i]])
           }
 
-          // Trigger confetti and open link after success message
+          // Trigger confetti
           setTimeout(async () => {
             const confetti = (await import('canvas-confetti')).default
             confetti({
@@ -137,24 +137,28 @@ export default function MiniTerminal() {
               spread: 70,
               origin: { y: 0.6 },
             })
-
-            // Open project link if available (create anchor element for better mobile support)
-            if (project) {
-              const url = project.url || project.githubUrl
-              if (url) {
-                setTimeout(() => {
-                  // Create a temporary anchor element for better mobile browser support
-                  const link = document.createElement('a')
-                  link.href = url
-                  link.target = '_blank'
-                  link.rel = 'noopener noreferrer'
-                  document.body.appendChild(link)
-                  link.click()
-                  document.body.removeChild(link)
-                }, 500)
-              }
-            }
           }, 100)
+
+          // Add clickable link in output for mobile Safari compatibility
+          if (project) {
+            const url = project.url || project.githubUrl
+            if (url) {
+              addOutput([
+                createOutput(
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-400 hover:text-green-300 underline font-semibold cursor-pointer inline-block mt-2"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    → Click to open {project.title}
+                  </a>,
+                  'success'
+                ),
+              ])
+            }
+          }
         }
         setIsExecuting(false)
         return
