@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Lerdi Salihi | Journey Map CV',
-  description: 'Computer Science Student · DevOps Apprentice · Builder',
+  description: 'Computer Science Student · DevOps Engineer · Builder',
 }
 
 export default function RootLayout({
