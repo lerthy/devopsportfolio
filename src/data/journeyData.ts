@@ -73,7 +73,7 @@ export const journeyStops: JourneyStop[] = [
         {
           title: "Appointly",
           description: "Appointment booking platform with UX focus",
-          technologies: ["React", "Node.js", "Supabase  "],
+          technologies: ["React", "Node.js", "Supabase", "MCP AI"],
           challenges: ["User experience design", "Real-time scheduling"],
           url: "https://appointly-ks.com/",
         },
