@@ -59,7 +59,8 @@ export const commandHandlers: Record<string, CommandHandler> = {
     }
 
     if (path === 'journey' || state.currentDirectory === 'journey') {
-      return [createOutput('prishtina  netherlands  projects  devops  startup', 'normal')]
+      const ids = journeyStops.map((stop) => stop.id)
+      return [createOutput(ids.join('  '), 'normal')]
     }
 
     if (path === 'recommendations' || state.currentDirectory === 'recommendations') {
@@ -98,6 +99,18 @@ export const commandHandlers: Record<string, CommandHandler> = {
         createOutput(formatLogMessage('INFO', 'Securing file transfers'), 'info'),
         createOutput(formatLogMessage('INFO', 'Configuring system services'), 'info'),
         createOutput(formatLogMessage('SUCCESS', 'Production mindset acquired'), 'success'),
+      ]
+    }
+
+    if (
+      filePath === 'journey/polymathservices.log' ||
+      (state.currentDirectory === 'journey' && fileName === 'polymathservices.log')
+    ) {
+      return [
+        createOutput(formatLogMessage('INFO', 'Maintaining CI/CD pipelines'), 'info'),
+        createOutput(formatLogMessage('INFO', 'Automating infrastructure changes'), 'info'),
+        createOutput(formatLogMessage('INFO', 'Improving monitoring and alerting'), 'info'),
+        createOutput(formatLogMessage('SUCCESS', 'Shipping reliably at scale'), 'success'),
       ]
     }
 

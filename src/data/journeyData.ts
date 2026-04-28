@@ -64,7 +64,7 @@ export const journeyStops: JourneyStop[] = [
     id: "projects",
     title: "Academic & Personal Projects",
     location: "Projects",
-    date: "2022 - Present",
+    date: "2023 - Present",
     icon: "code",
     position: 50,
     content: {
@@ -120,7 +120,7 @@ export const journeyStops: JourneyStop[] = [
     location: "DevOps/Dev",
     date: "2024 - Present",
     icon: "rocket",
-    position: 85,
+    position: 78,
     content: {
       description: "Startup & Side Projects",
       technologies: ["Full Stack", "E-commerce", "Team Collaboration"],
@@ -129,16 +129,36 @@ export const journeyStops: JourneyStop[] = [
     },
   },
   {
+    id: "polymathservices",
+    title: "DevOps Engineer | Polymathservices",
+    location: "Polymathservices",
+    date: "2025 - Present",
+    icon: "server",
+    position: 85,
+    content: {
+      description: "DevOps Engineer",
+      technologies: [
+        "AWS",
+        "CI/CD",
+        "Docker",
+        "Terraform",
+        "Linux",
+        "Monitoring",
+      ],
+      keyTakeaway: "Building and operating reliable delivery pipelines in production",
+    },
+  },
+  {
     id: "next",
     title: "Where I'm Going",
     location: "Future",
-    date: "2025+",
+    date: "2026+",
     icon: "compass",
     position: 100,
     content: {
       description: "Next Destination",
       keyTakeaway:
-        "Looking for Junior DevOps / Software Engineer roles. Focus on reliability, automation, clean systems",
+        "Motivated to keep learning, expand my knowledge, work on meaningful projects, and make a real difference.",
     },
   },
 ]

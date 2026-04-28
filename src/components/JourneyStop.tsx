@@ -20,6 +20,7 @@ interface JourneyStopProps {
   onClick: () => void
   index: number
   isCompleted: boolean
+  totalStages: number
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -32,7 +33,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 const stageStatus = (index: number, total: number, isCompleted: boolean) => {
-  // Last stage (Stage 6) is always pending
+  // Last stage is always pending
   if (index === total - 1) return 'pending'
   // All completed stages are succeeded
   if (isCompleted) return 'succeeded'
@@ -46,9 +47,10 @@ export default function JourneyStop({
   onClick,
   index,
   isCompleted,
+  totalStages,
 }: JourneyStopProps) {
   const IconComponent = iconMap[stop.icon] || Circle
-  const status = stageStatus(index, 6, isCompleted)
+  const status = stageStatus(index, totalStages, isCompleted)
 
   const statusColors = {
     succeeded: 'bg-green-600 border-green-500',

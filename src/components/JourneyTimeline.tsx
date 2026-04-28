@@ -19,7 +19,8 @@ export default function JourneyTimeline() {
   })
 
   // Calculate progress for pipeline animation
-  const pipelineProgress = useTransform(scrollYProgress, [0, 1], [0, 100])
+  // Fill the pipeline earlier so it looks "complete" while in view
+  const pipelineProgress = useTransform(scrollYProgress, [0, 0.6, 1], [0, 100, 100])
 
   return (
     <section
@@ -78,6 +79,7 @@ export default function JourneyTimeline() {
                         onClick={() => setSelectedStop(stop)}
                         index={index}
                         isCompleted={isCompleted}
+                        totalStages={journeyStops.length}
                       />
 
                       {/* Connector Arrow (not for last item) */}
@@ -131,6 +133,7 @@ export default function JourneyTimeline() {
                       onClick={() => setSelectedStop(stop)}
                       index={index}
                       isCompleted={isCompleted}
+                      totalStages={journeyStops.length}
                     />
 
                     {/* Connector Arrow (not for last item) */}
