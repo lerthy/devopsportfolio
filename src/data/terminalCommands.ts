@@ -21,7 +21,7 @@ const recommendationMap: Record<string, string> = {
 export const commandHandlers: Record<string, CommandHandler> = {
   whoami: () => [
     createOutput('Lerdi Salihi', 'normal'),
-    createOutput('Computer Science Student | DevOps Apprentice | Builder', 'normal'),
+    createOutput('Computer Science Graduate | DevOps Apprentice | Builder', 'normal'),
     createOutput('Location: Prishtina / Remote', 'normal'),
   ],
 
