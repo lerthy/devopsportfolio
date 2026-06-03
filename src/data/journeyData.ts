@@ -4,7 +4,6 @@ export interface Project {
   technologies: string[]
   challenges?: string[]
   url?: string
-  githubUrl?: string
 }
 
 // Import for potential future use
@@ -82,7 +81,6 @@ export const journeyStops: JourneyStop[] = [
           description: "DevOps-style dashboard with CI/CD integration",
           technologies: ["Grafana", "Uptime Kuma", "Terraform", "Docker", "AWS CICD"],
           challenges: ["CI/CD pipeline setup", "Monitoring integration"],
-          githubUrl: "https://github.com/lerthy/TeamDashboard",
         },
         {
           title: "KosovARi",

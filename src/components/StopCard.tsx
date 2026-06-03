@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Calendar, MapPin, CheckCircle2, Code2, BookOpen, ExternalLink, Github } from 'lucide-react'
+import { X, Calendar, MapPin, CheckCircle2, Code2, BookOpen, ExternalLink } from 'lucide-react'
 import { JourneyStop } from '@/data/journeyData'
 
 interface StopCardProps {
@@ -193,9 +193,9 @@ export default function StopCard({ stop, onClose }: StopCardProps) {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2 flex-wrap">
-                              {(project.url || project.githubUrl) ? (
+                              {project.url ? (
                                 <a
-                                  href={project.url || project.githubUrl}
+                                  href={project.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="font-bold text-white text-lg hover:text-[#FF9900] transition-colors flex items-center gap-1.5"
@@ -219,18 +219,6 @@ export default function StopCard({ stop, onClose }: StopCardProps) {
                                 >
                                   <ExternalLink className="w-3 h-3" />
                                   Visit Site
-                                </a>
-                              )}
-                              {project.githubUrl && (
-                                <a
-                                  href={project.githubUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 px-2 py-1 bg-slate-700/60 hover:bg-slate-700/80 border border-slate-600/50 rounded text-xs text-slate-200 transition-all hover:scale-105"
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  <Github className="w-3 h-3" />
-                                  GitHub
                                 </a>
                               )}
                             </div>

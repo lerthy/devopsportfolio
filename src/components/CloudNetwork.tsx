@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Cloud } from 'lucide-react'
+import { Linkedin, Mail, Cloud } from 'lucide-react'
 
 interface SocialNode {
   id: string
@@ -16,21 +16,12 @@ interface SocialNode {
 
 const socialNodes: SocialNode[] = [
   {
-    id: 'github',
-    icon: <Github className="w-6 h-6" />,
-    label: 'GitHub',
-    url: 'https://github.com/lerthy',
-    status: 'Profile active',
-    x: 20,
-    y: 30,
-  },
-  {
     id: 'linkedin',
     icon: <Linkedin className="w-6 h-6" />,
     label: 'LinkedIn',
     url: 'https://www.linkedin.com/in/lerdi-salihi',
     status: 'Open for messages',
-    x: 80,
+    x: 30,
     y: 30,
   },
   {
@@ -39,8 +30,8 @@ const socialNodes: SocialNode[] = [
     label: 'Email',
     url: 'mailto:lerdi890@gmail.com',
     status: 'Always available',
-    x: 50,
-    y: 70,
+    x: 70,
+    y: 30,
   },
 ]
 
@@ -49,9 +40,7 @@ export default function CloudNetwork() {
 
   // Calculate connection lines between nodes
   const connections = [
-    { from: socialNodes[0], to: socialNodes[1] }, // GitHub to LinkedIn
-    { from: socialNodes[0], to: socialNodes[2] }, // GitHub to Email
-    { from: socialNodes[1], to: socialNodes[2] }, // LinkedIn to Email
+    { from: socialNodes[0], to: socialNodes[1] }, // LinkedIn to Email
   ]
 
   return (

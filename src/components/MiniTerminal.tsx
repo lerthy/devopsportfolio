@@ -141,7 +141,7 @@ export default function MiniTerminal() {
 
           // Add clickable link in output for mobile Safari compatibility
           if (project) {
-            const url = project.url || project.githubUrl
+            const url = project.url
             if (url) {
               addOutput([
                 createOutput(

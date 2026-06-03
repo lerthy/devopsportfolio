@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MapPin, Download, Github, Linkedin, ArrowDown } from 'lucide-react'
+import { MapPin, Download, Linkedin, ArrowDown } from 'lucide-react'
 
 export default function Hero() {
   const scrollToTimeline = () => {
@@ -125,17 +125,6 @@ export default function Hero() {
             >
               <Download className="w-5 h-5" />
               Download PDF CV
-            </motion.a>
-            <motion.a
-              href="https://github.com/lerthy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-slate-800 dark:bg-slate-700 hover:bg-slate-900 dark:hover:bg-slate-600 text-white rounded-lg font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Github className="w-5 h-5" />
-              GitHub
             </motion.a>
             <motion.a
               href="https://www.linkedin.com/in/lerdi-salihi"

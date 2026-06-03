@@ -1,6 +1,6 @@
 'use client'
 
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Linkedin, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function Footer() {
@@ -27,17 +27,6 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <motion.a
-              href="https://github.com/lerthy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-lg transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5 text-slate-700 dark:text-slate-300" />
-            </motion.a>
             <motion.a
               href="https://www.linkedin.com/in/lerdi-salihi"
               target="_blank"
