@@ -118,7 +118,7 @@ export const journeyStops: JourneyStop[] = [
     id: "startup",
     title: "Startup & Side Projects | Bytefull & Friends",
     location: "DevOps/Dev",
-    date: "2024 - Present",
+    date: "2023 - Present",
     icon: "rocket",
     position: 78,
     content: {

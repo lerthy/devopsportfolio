@@ -80,11 +80,12 @@ This message was sent from your portfolio contact form.
       throw new Error('Email service not configured')
     }
 
-    // Create SMTP transporter
+    const useSecure = smtpPort === 465
     const transporter = nodemailer.createTransport({
       host: smtpHost,
       port: smtpPort,
-      secure: smtpPort === 465, // true for 465, false for other ports
+      secure: useSecure,
+      requireTLS: !useSecure && smtpPort === 587,
       auth: {
         user: smtpUser,
         pass: smtpPass,
