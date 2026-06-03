@@ -95,6 +95,20 @@ export const journeyStops: JourneyStop[] = [
     },
   },
   {
+    id: "startup",
+    title: "Startup & Side Projects | Bytefull & Friends",
+    location: "DevOps/Dev",
+    date: "2023",
+    icon: "rocket",
+    position: 78,
+    content: {
+      description: "Startup & Side Projects",
+      technologies: ["Full Stack", "E-commerce", "Team Collaboration"],
+      keyTakeaway:
+        "Small team, fast iteration, ownership of full stack. Skills: decision making, shipping code, problem solving",
+    },
+  },
+  {
     id: "devops",
     title: "DevOps Apprentice",
     location: "DevOps", 
@@ -112,20 +126,6 @@ export const journeyStops: JourneyStop[] = [
         "Uptime Kuma",
       ],
       keyTakeaway: "From writing code → to running systems",
-    },
-  },
-  {
-    id: "startup",
-    title: "Startup & Side Projects | Bytefull & Friends",
-    location: "DevOps/Dev",
-    date: "2023 - Present",
-    icon: "rocket",
-    position: 78,
-    content: {
-      description: "Startup & Side Projects",
-      technologies: ["Full Stack", "E-commerce", "Team Collaboration"],
-      keyTakeaway:
-        "Small team, fast iteration, ownership of full stack. Skills: decision making, shipping code, problem solving",
     },
   },
   {
